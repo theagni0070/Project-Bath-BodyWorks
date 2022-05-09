@@ -982,9 +982,7 @@ function display()
 
 }
 
-
-var d =0
-var cartData = JSON.parse(localStorage.getItem("cart-Data"))
+var cartData = JSON.parse(localStorage.getItem("cart-Data"))||[]
 console.log(cartData)
 
 cartData.forEach(function(el){
@@ -992,6 +990,7 @@ cartData.forEach(function(el){
     el.TotalItemPrice = el.product_price
 
 })
+localStorage.setItem("cart-Data",JSON.stringify(cartData))
 if(cartData.length==0){
     var h1_tag = document.createElement("h1")
     h1_tag.innerText = "Your Shopping Bag is Empty"
@@ -1108,6 +1107,7 @@ function cartdisplay(){
         decqty(el,i)
         d22.innerText = el.qty
         d31.innerText = "$"+el.TotalItemPrice
+        localStorage.setItem("cart-Data",JSON.stringify(cartData))
     })
     var d22 = document.createElement("div")
     d22.innerText = el.qty
@@ -1118,6 +1118,7 @@ function cartdisplay(){
         incqty(el,i)
         d22.innerText = el.qty
         d31.innerText = "$"+el.TotalItemPrice
+        localStorage.setItem("cart-Data",JSON.stringify(cartData))
 
     })
     d2.append(d21,d22,d23)
@@ -1169,12 +1170,16 @@ function decqty(el,i){
         TotalItemPrice = quantity*el.product_price
         el.TotalItemPrice = TotalItemPrice
         localStorage.setItem("cart-Data",JSON.stringify(cartData))
+        
+        
+      
     }
     else{
         el.qty = quantity
         TotalItemPrice = quantity*el.product_price
         el.TotalItemPrice = TotalItemPrice
         localStorage.setItem("cart-Data",JSON.stringify(cartData))
+        
     }
 
     
@@ -1188,6 +1193,7 @@ function incqty(el,i){
     el.TotalItemPrice = TotalItemPrice
     localStorage.setItem("cart-Data",JSON.stringify(cartData))
     
+    
 
 }
 
@@ -1200,8 +1206,16 @@ function TotPrice(){
     console.log(tot)
     localStorage.setItem("cart-Data",JSON.stringify(cartData1))
     document.querySelector("#MST").innerText = "$"+tot
+    
+    
+    var cartData1 = JSON.parse(localStorage.getItem("cart-Data"))
     var orderTot = tot+6.99+3.
+    localStorage.setItem("cart-Data",JSON.stringify(cartData1))
     document.querySelector("#OTT").innerText = "$"+orderTot.toFixed(2)
+    
+  
+
+    
 
     
 
