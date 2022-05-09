@@ -984,7 +984,8 @@ function display()
 
 
 var d =0
-var cartData = JSON.parse(localStorage.getItem("cart-Data"))||[]
+var cartData = JSON.parse(localStorage.getItem("cart-Data"))
+console.log(cartData)
 
 cartData.forEach(function(el){
     el.qty = 1
@@ -1030,7 +1031,7 @@ function cartdisplay(){
     })
     var d1112 = document.createElement("div") 
     d1112.setAttribute("class","price")
-    d1112.innerText = "$" +el.product_price+"0"
+    d1112.innerText = ""
     d1113 = document.createElement("div")
     d1113.setAttribute("class","love")
     var imgg = document.createElement("img")
@@ -1211,8 +1212,8 @@ document.querySelector("#updateBag").addEventListener("click",TotPrice)
 
 function removeProduct(el,i){
     console.log("Ok")
-    var cartData2 = JSON.parse(localStorage.getItem("Cart-Data"))
-    cartData2.splice(i,1)
+    cartData2 = cartData.splice(i,1)
+    console.log(cartData2)
     console.log(event.target.parentNode)
     event.target.parentNode.remove()
 
