@@ -1247,13 +1247,14 @@ document.querySelector("#updateBag").addEventListener("click",TotPrice)
 
 function removeProduct(el,i){
     console.log("Ok")
-    cartData = cartData.splice(i,1)
+    cartData.splice(i,1)
+    localStorage.setItem("cart-Data",JSON.stringify(cartData))
     
-    console.log(event.target.parentNode)
+  
     event.target.parentNode.remove()
 
-    localStorage.setItem("cart-Data",JSON.stringify(cartData))
-    TotPrice()
+
+
     
     // shoppingCartDisplay(cartData2)
     
