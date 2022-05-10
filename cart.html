@@ -29,13 +29,13 @@
     </div>
     <div id="menu">
         <p class="hover-line">NEW & NOW</p>
-        <p class="hover-line">BODY CARE</p>
-        <p class="hover-line">HAND SOAPS & SANITIZERS</p>
-        <p class="hover-line">HOME FRAGRANCE</p>
-        <p class="hover-line">GIFTS</p>
-        <p class="hover-line">TOP OFFERS</p>
+        <p class="hover-line"><a href="bodycare.html">BODY CARE</a></p>
+        <p class="hover-line"><a href="Handsoap&sanitizer.html">HAND SOAPS & SANITIZERS</a></p>
+        <p class="hover-line"><a href="fragrance.html">HOME FRAGRANCE</a></p>
+        <p class="hover-line"><a href="gifts.html">GIFTS</a></p>
+        <p class="hover-line"><a href="topoffers.html">TOP OFFERS</a></p>
     </div>
-    <a href="">CONTINUE SHOPPING</a>
+    <a href="bodycare.html">CONTINUE SHOPPING</a>
     
     <div class="container">
         <h2 class="h2">WAIT! LET US RECOMMEND</h2>
@@ -985,18 +985,23 @@ function display()
 var cartData = JSON.parse(localStorage.getItem("cart-Data"))||[]
 console.log(cartData)
 
-cartData.forEach(function(el){
-    el.qty = 1
-    el.TotalItemPrice = el.product_price
+// cartData.forEach(function(el){
+//     el.qty = 1
+//     el.TotalItemPrice = el.product_price
 
-})
-localStorage.setItem("cart-Data",JSON.stringify(cartData))
+// })
+var d
+function continueshop(){
+    window.location.href ="bodycare.html"
+}
+
 if(cartData.length==0){
     var h1_tag = document.createElement("h1")
     h1_tag.innerText = "Your Shopping Bag is Empty"
     var hor = document.createElement("hr")
     var btt= document.createElement("button")
     btt.innerText = "Continue Shopping"
+    btt.addEventListener("click",continueshop)
     console.log("hu")
 
     document.querySelector("#bag").append(h1_tag,hor,btt)
@@ -1196,6 +1201,18 @@ function incqty(el,i){
     
 
 }
+var merTot = localStorage.getItem("Mtotal")
+if(merTot==null){
+    document.querySelector("#counter").style.display = "none"
+
+}
+else{
+    document.querySelector("#MST").innerText = "$"+localStorage.getItem("Mtotal")
+document.querySelector("#OTT").innerText = "$" + localStorage.getItem("Stotal")
+
+}
+
+
 
 function TotPrice(){
     var cartData1 = JSON.parse(localStorage.getItem("cart-Data"))
@@ -1206,12 +1223,16 @@ function TotPrice(){
     console.log(tot)
     localStorage.setItem("cart-Data",JSON.stringify(cartData1))
     document.querySelector("#MST").innerText = "$"+tot
+    localStorage.setItem("Mtotal",tot)
     
     
     var cartData1 = JSON.parse(localStorage.getItem("cart-Data"))
     var orderTot = tot+6.99+3.
     localStorage.setItem("cart-Data",JSON.stringify(cartData1))
     document.querySelector("#OTT").innerText = "$"+orderTot.toFixed(2)
+    localStorage.setItem("cart-Data",JSON.stringify(cartData1))
+    localStorage.setItem("Stotal",orderTot)
+    window.location.reload()
     
   
 
@@ -1226,14 +1247,16 @@ document.querySelector("#updateBag").addEventListener("click",TotPrice)
 
 function removeProduct(el,i){
     console.log("Ok")
-    cartData2 = cartData.splice(i,1)
-    console.log(cartData2)
+    cartData = cartData.splice(i,1)
+    
     console.log(event.target.parentNode)
     event.target.parentNode.remove()
 
-    localStorage.setItem("cart-Data",JSON.stringify(cartData2))
-    console.log(cartData2)
+    localStorage.setItem("cart-Data",JSON.stringify(cartData))
+    TotPrice()
+    
     // shoppingCartDisplay(cartData2)
+    
 
 }
 var chk = document.getElementById("checkout").addEventListener("click",redirect)
