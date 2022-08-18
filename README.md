@@ -7,7 +7,7 @@ This is a e-commerce website clone that we made during the construct week at Mas
 
 ## Deployment
 
-This project is deployed on netlify here - [Ssense Clone](https://beautiful-cat-23c58b.netlify.app/)
+This project is deployed on netlify here - [Bath & Body works](https://beautiful-cat-23c58b.netlify.app/)
 
 ## Authors
 
