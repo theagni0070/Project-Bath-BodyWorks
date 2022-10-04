@@ -5,9 +5,19 @@
 
 This is a e-commerce website clone that we made during the construct week at Masai School. It was completed within 6 days.
 
+
+
+
 ## Deployment
 
 This project is deployed on netlify here - [Bath & Body works](https://beautiful-cat-23c58b.netlify.app/)
+
+
+![Screenshot (397)](https://user-images.githubusercontent.com/102143515/193774432-245cabbf-ea2f-4da7-9d4a-4e044acc5ff6.png)
+![Screenshot (398)](https://user-images.githubusercontent.com/102143515/193774460-9a8e71a3-542a-4591-b38d-c03643df046c.png)
+![Screenshot (399)](https://user-images.githubusercontent.com/102143515/193774478-d417b96b-261c-4146-b94c-f613e1445791.png)
+![Screenshot (400)](https://user-images.githubusercontent.com/102143515/193774493-2d8b9b73-9b17-4509-8985-6f38b90bb313.png)
+
 
 ## Authors
 
